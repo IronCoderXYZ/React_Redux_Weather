@@ -4,7 +4,12 @@ export default class SearchBar extends Component {
   constructor(props) {
     super(props);
     this.state = { searchTerm: '' };
+    this.onSubmit = this.onSubmit.bind(this);
     this.onInputChange = this.onInputChange.bind(this);
+  }
+
+  onSubmit(event) {
+    event.preventDefault();
   }
 
   onInputChange({ target: { value } }) {
@@ -12,9 +17,8 @@ export default class SearchBar extends Component {
   }
 
   render() {
-    console.log(this.state.searchTerm);
     return (
-      <form className="input-group">
+      <form onSubmit={this.onSubmit} className="input-group">
         <input
           className="form-control"
           onChange={this.onInputChange}
