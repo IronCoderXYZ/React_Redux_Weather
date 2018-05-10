@@ -6,17 +6,11 @@ import {
   SparklinesLine,
   SparklinesReferenceLine
 } from 'react-sparklines';
-
-const styles = {
-  width: 280,
-  height: 150
-};
-
 const average = data => _.round(_.sum(data) / data.length);
 
 export default props => {
   return (
-    <div style={styles}>
+    <div>
       <Sparklines data={props.data}>
         <SparklinesLine color={props.color} />
         <SparklinesReferenceLine type="avg" />
